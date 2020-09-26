@@ -1,6 +1,4 @@
 {
-  "extends": [
-    "oclif",
-    "oclif-typescript"
-  ]
+  "extends": "prettier",
+  "parser": "@typescript-eslint/parser",
 }
