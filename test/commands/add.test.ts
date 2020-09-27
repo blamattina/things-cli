@@ -1,11 +1,11 @@
 import Add from '../../src/commands/add';
-import * as sendCommand from '../../src/things/send-command';
+import * as sendJson from '../../src/things/send-json';
 
 describe('commands/add', () => {
   let stdout: Array<any>;
 
   beforeEach(() => {
-    spyOn(sendCommand, 'sendCommand');
+    spyOn(sendJson, 'sendJson');
 
     stdout = [];
     jest
@@ -14,12 +14,12 @@ describe('commands/add', () => {
   });
 
   it('adds a task to the Inbox', async () => {
-    await Add.run(['test task']);
-    expect(stdout[0]).toContain("Added 'test task' to 'Inbox'");
+    await Add.run(['Water plants']);
+    expect(stdout[0]).toContain("Added 'Water plants' to 'Inbox'");
   });
 
   it('adds a task to the given list', async () => {
-    await Add.run(['-l=Test List', 'test task']);
-    expect(stdout[0]).toContain("Added 'test task' to 'Test List'");
+    await Add.run(['-l=Shopping List', 'Milk']);
+    expect(stdout[0]).toContain("Added 'Milk' to 'Shopping List'");
   });
 });

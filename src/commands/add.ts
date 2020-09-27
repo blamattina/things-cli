@@ -1,5 +1,7 @@
 import { Command, flags } from '@oclif/command';
-import { sendCommand } from '../things/send-command';
+import { Todo } from '../things/Todo';
+import { buildTodo } from '../things/builders';
+import { sendJson } from '../things/send-json';
 
 export default class Add extends Command {
   static description = 'Add a to-do';
@@ -7,6 +9,9 @@ export default class Add extends Command {
   static examples = [
     `$ things add testing 1 2 3
 Added 'testing 1 2 3' to 'Inbox'
+`,
+    `$ things add -l="Shopping List" Milk
+Added 'Milk' to 'Shopping List'
 `,
   ];
 
@@ -24,14 +29,16 @@ Added 'testing 1 2 3' to 'Inbox'
   static args = [{ name: 'file' }];
 
   async run() {
-    const { argv, flags } = this.parse(Add);
+    const {
+      argv,
+      flags: { list },
+    } = this.parse(Add);
+
     const title = argv.join(' ');
+    const data = [buildTodo({ title, list })];
 
-    sendCommand('add', {
-      list: flags.list,
-      title,
-    });
+    sendJson(data);
 
-    this.log(`Added '${title}' to '${flags.list}'`);
+    this.log(`Added '${title}' to '${list}'`);
   }
 }
