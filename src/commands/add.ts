@@ -32,6 +32,6 @@ Added 'testing 1 2 3' to 'Inbox'
       title,
     });
 
-    this.log(`Added ${title} to ${flags.list}`);
+    this.log(`Added '${title}' to '${flags.list}'`);
   }
 }
