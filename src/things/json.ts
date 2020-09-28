@@ -1,13 +1,15 @@
-export interface CheckListJson {
+export interface ChecklistJson {
   type: 'checklist-item';
-  title: string;
-  completed?: boolean;
+  attributes: {
+    title: string;
+    completed?: boolean;
+  };
 }
 
 export interface TodoJson {
   type: 'to-do';
   attributes: {
-    'checklist-items'?: CheckListJson[];
+    'checklist-items'?: ChecklistJson[];
     deadline?: string;
     list?: string;
     tags?: string[];

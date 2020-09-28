@@ -1,5 +1,4 @@
 import { Command, flags } from '@oclif/command';
-import { Todo } from '../things/Todo';
 import { buildTodo } from '../things/builders';
 import { sendJson } from '../things/send-json';
 
@@ -24,6 +23,10 @@ Added 'Milk' to 'Shopping List'
       description: 'list to add to',
       default: 'Inbox',
     }),
+    when: flags.string({
+      char: 'w',
+      description: 'when this should appear in the today view',
+    }),
   };
 
   static args = [{ name: 'file' }];
@@ -31,11 +34,11 @@ Added 'Milk' to 'Shopping List'
   async run() {
     const {
       argv,
-      flags: { list },
+      flags: { list, when },
     } = this.parse(Add);
 
     const title = argv.join(' ');
-    const data = [buildTodo({ title, list })];
+    const data = [buildTodo({ title, list, when })];
 
     sendJson(data);
 

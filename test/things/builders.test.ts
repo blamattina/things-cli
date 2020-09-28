@@ -24,5 +24,17 @@ describe('things/builders', () => {
         },
       });
     });
+
+    it('builds a todo with an optional when', () => {
+      const todoJson = buildTodo({ title: 'test todo', when: 'today' });
+
+      expect(todoJson).toEqual({
+        type: 'to-do',
+        attributes: {
+          title: 'test todo',
+          when: 'today',
+        },
+      });
+    });
   });
 });

@@ -1,5 +1,5 @@
 import { sendJson } from '../../src/things/send-json';
-import { TodoJson, ProjectJson } from '../../src/things/types';
+import { TodoJson, ProjectJson } from '../../src/things/json';
 
 const TODO_JSON: TodoJson = {
   type: 'to-do',

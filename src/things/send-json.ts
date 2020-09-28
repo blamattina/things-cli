@@ -1,5 +1,5 @@
 import openurl from 'openurl';
-import { TodoJson, ProjectJson } from './types';
+import { TodoJson, ProjectJson } from './json';
 
 export const sendJson = function (
   data = [] as Array<ProjectJson | TodoJson>,
