@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { buildTodo } from '../things/builders';
 import { sendJson } from '../things/send-json';
+import { filterObject } from '../util/filterObject';
 
 export default class Add extends Command {
   static description = 'Add a to-do';
@@ -27,6 +28,11 @@ Added 'Milk' to 'Shopping List'
       char: 'w',
       description: 'when this should appear in the today view',
     }),
+    checklist: flags.string({
+      char: 'c',
+      multiple: true,
+      description: 'add an item to the checklist',
+    }),
   };
 
   static args = [{ name: 'file' }];
@@ -34,11 +40,13 @@ Added 'Milk' to 'Shopping List'
   async run() {
     const {
       argv,
-      flags: { list, when },
+      flags: { list, when, checklist },
     } = this.parse(Add);
 
     const title = argv.join(' ');
-    const data = [buildTodo({ title, list, when })];
+    const data = [
+      buildTodo({ title, list, ...filterObject({ when, checklist }) }),
+    ];
 
     sendJson(data);
 

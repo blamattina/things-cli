@@ -19,5 +19,14 @@ describe('things/builders', () => {
 
       expect(todoJson).toMatchSnapshot();
     });
+
+    it('builds a todo with a checklist', () => {
+      const todoJson = buildTodo({
+        title: 'test todo',
+        checklist: ['step 1', 'step 2'],
+      });
+
+      expect(todoJson).toMatchSnapshot();
+    });
   });
 });

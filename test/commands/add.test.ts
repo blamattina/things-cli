@@ -54,4 +54,17 @@ describe('commands/add', () => {
       when: 'Tomorrow',
     });
   });
+
+  it('adds a task on the given date', async () => {
+    await Add.run(['task', '-c=step 1', '-c=step 2']);
+
+    expect(sendJson.sendJson).toHaveBeenCalledWith(['JSON']);
+
+    expect(stdout[0]).toContain("Added 'task' to 'Inbox'");
+    expect(builders.buildTodo).toHaveBeenCalledWith({
+      list: 'Inbox',
+      title: 'task',
+      checklist: ['step 1', 'step 2'],
+    });
+  });
 });

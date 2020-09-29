@@ -14,12 +14,12 @@ export const buildTodo = function ({
   title,
   list,
   when,
-  checklistItems = [],
+  checklist = [],
 }: {
   title: string;
   list?: string;
   when?: string;
-  checklistItems?: Array<string>;
+  checklist?: Array<string>;
 }): TodoJson {
   return {
     type: 'to-do',
@@ -28,7 +28,7 @@ export const buildTodo = function ({
       ...filterObject({
         list,
         when,
-        'checklist-items': checklistItems.map(buildChecklistItem),
+        'checklist-items': checklist.map(buildChecklistItem),
       }),
     },
   };

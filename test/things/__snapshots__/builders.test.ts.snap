@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`things/builders buildTodo builds a todo with a checklist 1`] = `
+Object {
+  "attributes": Object {
+    "checklist-items": Array [
+      Object {
+        "attributes": Object {
+          "title": "step 1",
+        },
+        "type": "checklist-item",
+      },
+      Object {
+        "attributes": Object {
+          "title": "step 2",
+        },
+        "type": "checklist-item",
+      },
+    ],
+    "title": "test todo",
+  },
+  "type": "to-do",
+}
+`;
+
 exports[`things/builders buildTodo builds a todo with a title 1`] = `
 Object {
   "attributes": Object {
