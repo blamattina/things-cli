@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`things/builders buildTodo builds a todo with a title 1`] = `
+Object {
+  "attributes": Object {
+    "title": "test todo",
+  },
+  "type": "to-do",
+}
+`;
+
+exports[`things/builders buildTodo builds a todo with an optional list 1`] = `
+Object {
+  "attributes": Object {
+    "list": "test list",
+    "title": "test todo",
+  },
+  "type": "to-do",
+}
+`;
+
+exports[`things/builders buildTodo builds a todo with an optional when 1`] = `
+Object {
+  "attributes": Object {
+    "title": "test todo",
+    "when": "today",
+  },
+  "type": "to-do",
+}
+`;
