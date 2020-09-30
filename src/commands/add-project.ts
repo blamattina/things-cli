@@ -1,5 +1,4 @@
 import { Command, flags } from '@oclif/command';
-import { Todo } from '../things/Todo';
 import { sendJson } from '../things/send-json';
 
 export default class AddProject extends Command {
