@@ -7,8 +7,11 @@ export default class AddProject extends Command {
   static description = 'Add a project';
 
   static examples = [
-    `$ things add testing 1 2 3
-Added 'testing 1 2 3' to 'Inbox'
+    `$ things add-project chores
+Added project 'chores'
+`,
+    `$ things add-project chores -t="water plants" -t="take out recycling"
+Added project 'chores' with todos: water plants, take out recycling
 `,
   ];
 

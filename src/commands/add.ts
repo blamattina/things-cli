@@ -10,8 +10,11 @@ export default class Add extends Command {
     `$ things add testing 1 2 3
 Added 'testing 1 2 3' to 'Inbox'
 `,
-    `$ things add -l="Shopping List" Milk
+    `$ things add Milk -l="Shopping List"
 Added 'Milk' to 'Shopping List'
+`,
+    `$ things add Milk -w="tomorrow"
+Added 'Milk' to 'Inbox'
 `,
   ];
 
