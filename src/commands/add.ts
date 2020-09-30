@@ -38,7 +38,7 @@ Added 'Milk' to 'Inbox'
     }),
   };
 
-  static args = [{ name: 'file' }];
+  static args = [{ name: 'todo', description: 'task to add', required: true }];
 
   async run() {
     const {

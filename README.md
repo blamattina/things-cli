@@ -29,17 +29,20 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`things add [FILE]`](#things-add-file)
-* [`things add-project [FILE]`](#things-add-project-file)
+* [`things add TODO`](#things-add-todo)
+* [`things add-project PROJECT`](#things-add-project-project)
 * [`things help [COMMAND]`](#things-help-command)
 
-## `things add [FILE]`
+## `things add TODO`
 
 Add a to-do
 
 ```
 USAGE
-  $ things add [FILE]
+  $ things add TODO
+
+ARGUMENTS
+  TODO  task to add
 
 OPTIONS
   -c, --checklist=checklist  add an item to the checklist
@@ -60,13 +63,16 @@ EXAMPLES
 
 _See code: [src/commands/add.ts](https://github.com/blamattina/things-cli/blob/v0.0.0/src/commands/add.ts)_
 
-## `things add-project [FILE]`
+## `things add-project PROJECT`
 
 Add a project
 
 ```
 USAGE
-  $ things add-project [FILE]
+  $ things add-project PROJECT
+
+ARGUMENTS
+  PROJECT  project to add
 
 OPTIONS
   -h, --help       show CLI help

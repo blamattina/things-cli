@@ -26,7 +26,9 @@ Added project 'chores' with todos: water plants, take out recycling
     }),
   };
 
-  static args = [{ name: 'file' }];
+  static args = [
+    { name: 'project', description: 'project to add', required: true },
+  ];
 
   async run() {
     const {
