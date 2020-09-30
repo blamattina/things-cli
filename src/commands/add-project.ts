@@ -1,5 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { sendJson } from '../things/send-json';
+import { buildProject } from '../things/builders';
+import { filterObject } from '../util/filterObject';
 
 export default class AddProject extends Command {
   static description = 'Add a project';
@@ -14,7 +16,7 @@ Added 'testing 1 2 3' to 'Inbox'
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    task: flags.string({
+    todo: flags.string({
       char: 't',
       description: 'add a task',
       multiple: true,
@@ -26,26 +28,17 @@ Added 'testing 1 2 3' to 'Inbox'
   async run() {
     const {
       argv,
-      flags: { task },
+      flags: { todo },
     } = this.parse(AddProject);
 
     const title = argv.join(' ');
 
-    sendJson([
-      {
-        type: 'project',
-        attributes: {
-          title,
-          items: task.map((task) => ({
-            type: 'to-do',
-            attributes: {
-              title: task,
-            },
-          })),
-        },
-      },
-    ]);
+    sendJson([buildProject({ title, ...filterObject({ todos: todo }) })]);
 
-    this.log(`added tasks to ${title}`);
+    this.log(
+      `Added project '${title}' ${
+        todo ? `with todos: ${todo.join(', ')}` : ''
+      }`,
+    );
   }
 }
