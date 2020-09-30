@@ -20,7 +20,7 @@ $ npm install -g things-cli
 $ things COMMAND
 running command...
 $ things (-v|--version|version)
-things-cli/0.0.0 darwin-x64 node-v13.11.0
+things-cli/0.0.1 darwin-x64 node-v13.11.0
 $ things --help [COMMAND]
 USAGE
   $ things COMMAND
@@ -59,9 +59,12 @@ EXAMPLES
 
   $ things add Milk -w="tomorrow"
   Added 'Milk' to 'Inbox'
+
+  $ things add Shopping List -c="Eggs" -c="Milk"
+  Added 'Milk' to 'Inbox'
 ```
 
-_See code: [src/commands/add.ts](https://github.com/blamattina/things-cli/blob/v0.0.0/src/commands/add.ts)_
+_See code: [src/commands/add.ts](https://github.com/blamattina/things-cli/blob/v0.0.1/src/commands/add.ts)_
 
 ## `things add-project PROJECT`
 
@@ -86,7 +89,7 @@ EXAMPLES
   Added project 'chores' with todos: water plants, take out recycling
 ```
 
-_See code: [src/commands/add-project.ts](https://github.com/blamattina/things-cli/blob/v0.0.0/src/commands/add-project.ts)_
+_See code: [src/commands/add-project.ts](https://github.com/blamattina/things-cli/blob/v0.0.1/src/commands/add-project.ts)_
 
 ## `things help [COMMAND]`
 

@@ -16,6 +16,9 @@ Added 'Milk' to 'Shopping List'
     `$ things add Milk -w="tomorrow"
 Added 'Milk' to 'Inbox'
 `,
+    `$ things add Shopping List -c="Eggs" -c="Milk"
+Added 'Milk' to 'Inbox'
+`,
   ];
 
   static strict = false;

@@ -1,7 +1,7 @@
 {
   "name": "things-cli",
   "description": "CLI wrapper around Things URL Scheme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Brian LaMattina @blamattina",
   "bin": {
     "things": "./bin/run"
